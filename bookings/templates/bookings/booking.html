@@ -1,0 +1,16 @@
+{% extends "bookings/base.html" %}
+{% block title %}Book a Session | MixMidas{% endblock %}
+{% block content %}
+<section class="booking-page"><div class="container booking-layout"><div class="booking-intro"><p class="eyebrow">BOOK YOUR SESSION</p><h1>Let's turn your<br>sound to <em>gold.</em></h1><p>Sessions are ₦10,000 per hour. Choose a time between 10:00 AM and 6:00 PM and we’ll handle the rest.</p><div class="booking-note"><span>✦</span><p><strong>Good to know</strong><br>Bookings finish by 6:00 PM. Your available duration updates as you choose a start time.</p></div></div>
+<form method="post" class="booking-form" novalidate>{% csrf_token %}
+  {% if form.non_field_errors %}<div class="form-errors">{{ form.non_field_errors }}</div>{% endif %}
+  <div class="field-row"><div class="field"><label for="{{ form.name.id_for_label }}">Your name</label>{{ form.name }}{{ form.name.errors }}</div><div class="field"><label for="{{ form.email.id_for_label }}">Email address</label>{{ form.email }}{{ form.email.errors }}</div></div>
+  <div class="field"><label for="{{ form.service.id_for_label }}">Choose a service</label>{{ form.service }}{{ form.service.errors }}</div>
+  <div class="field-row"><div class="field"><label for="{{ form.date.id_for_label }}">Date</label>{{ form.date }}{{ form.date.errors }}</div><div class="field"><label for="{{ form.start_time.id_for_label }}">Choose time</label>{{ form.start_time }}{{ form.start_time.errors }}</div></div>
+  <div class="field"><label for="{{ form.duration_hours.id_for_label }}">How long?</label>{{ form.duration_hours }}{{ form.duration_hours.errors }}</div>
+  <div class="field"><label for="{{ form.project_details.id_for_label }}">Tell us about your project <small>(optional)</small></label>{{ form.project_details }}{{ form.project_details.errors }}</div>
+  <div class="estimate"><span>Estimated cost</span><strong id="cost-estimate">₦10,000</strong><small id="cost-detail">1 hour × ₦10,000</small></div>
+  <button class="button submit-button" type="submit">Book now <span>→</span></button>
+</form></div></section>
+{% if show_confirmation %}<div class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="confirmation-title"><div class="confirmation"><button class="modal-close" aria-label="Close">×</button><div class="confirmation-icon">✓</div><p class="eyebrow">SESSION BOOKED</p><h2 id="confirmation-title">Thanks, {{ booking.name }}!</h2><p>Your MixMidas session has been booked. We’ll be in the studio.</p><dl><div><dt>Service</dt><dd>{{ booking.service }}</dd></div><div><dt>Date</dt><dd>{{ booking.date|date:"l, j F Y" }}</dd></div><div><dt>Time & duration</dt><dd>{{ booking.start_time|time:"g:i A" }} · {{ booking.duration_hours }} hour{{ booking.duration_hours|pluralize }}</dd></div><div class="confirmation-total"><dt>Total</dt><dd>₦{{ booking.total_cost|floatformat:0 }}</dd></div></dl><a class="button" href="{% url 'home' %}">Back to home</a></div></div>{% endif %}
+{% endblock %}

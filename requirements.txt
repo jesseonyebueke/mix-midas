@@ -1,0 +1,4 @@
+Django>=5.0,<6.0
+whitenoise>=6.6
+# Vercel runs on Linux; binary avoids needing a local PostgreSQL client library.
+psycopg[binary]>=3.2,<3.4; platform_system != "Windows"

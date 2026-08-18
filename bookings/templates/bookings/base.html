@@ -1,0 +1,33 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="MixMidas — professional audio mixing, mastering and vocal sessions in Lekki.">
+  <title>{% block title %}MixMidas | The Midas Touch{% endblock %}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'bookings/styles.css' %}">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="logo" href="{% url 'home' %}">MIX<span>MIDAS</span></a>
+      <nav aria-label="Main navigation">
+        <a href="{% url 'home' %}#home">Home</a>
+        <a href="{% url 'home' %}#services">Services</a>
+        <a href="{% url 'home' %}#about">About</a>
+        <a href="{% url 'home' %}#contact">Contact</a>
+      </nav>
+      <a class="button button-small" href="{% url 'book_session' %}">Book a session</a>
+    </div>
+  </header>
+  <main>{% block content %}{% endblock %}</main>
+  <footer>
+    <div class="container footer-inner"><a class="logo" href="{% url 'home' %}">MIX<span>MIDAS</span></a><p>© {% now "Y" %} MixMidas. Made for better sound.</p></div>
+  </footer>
+  <script src="{% static 'bookings/site.js' %}"></script>
+</body>
+</html>
