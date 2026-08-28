@@ -1,5 +1,7 @@
 {% extends "bookings/base.html" %}
 {% load static %}
+
+{% block content %}
 <section id="home" class="hero">
   <div class="container hero-grid">
     <div>
@@ -9,8 +11,12 @@
       <div class="hero-actions"><a class="button" href="{% url 'book_session' %}">Book a session <span>→</span></a><a class="text-link" href="#services">Explore services ↓</a></div>
     </div>
    <div class="hero-mark">
-  <img src="{% static 'images/studio.jpg' %}" alt="MixMidas recording studio" class="studio-image">
-  <p>YOUR SOUND<br>IS WORTH IT</p>
+    <img
+        src="{% static 'bookings/images/studio.jpg' %}"
+        alt="MixMidas recording studio"
+        class="studio-image"
+    >
+    <p>YOUR SOUND<br>IS WORTH IT</p>
 </div>
   </div>
 </section>
