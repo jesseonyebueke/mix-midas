@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="820" viewBox="0 0 1200 820" role="img" aria-labelledby="title desc">
+  <title id="title">MixMidas use-case diagram</title>
+  <desc id="desc">Customers browse MixMidas and book sessions. Administrators log in and manage bookings.</desc>
+  <rect width="1200" height="820" fill="#ffffff"/>
+  <style>
+    .boundary { fill: #fbfdff; stroke: #0757d9; stroke-width: 2.5; }
+    .case { fill: #ffffff; stroke: #10264d; stroke-width: 2; }
+    .case-accent { fill: #eef5ff; stroke: #0757d9; stroke-width: 2.5; }
+    .actor, .link { fill: none; stroke: #10264d; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+    .link { stroke: #60708b; stroke-width: 1.6; }
+    .title { font: 700 28px Arial, sans-serif; fill: #10264d; }
+    .label { font: 600 17px Arial, sans-serif; fill: #10264d; text-anchor: middle; dominant-baseline: middle; }
+    .actor-label { font: 700 18px Arial, sans-serif; fill: #10264d; text-anchor: middle; }
+    .note { font: 500 14px Arial, sans-serif; fill: #60708b; text-anchor: middle; }
+  </style>
+
+  <text x="600" y="46" class="title" text-anchor="middle">MixMidas Use-Case Diagram</text>
+
+  <rect x="210" y="82" width="780" height="665" rx="4" class="boundary"/>
+  <text x="600" y="116" class="title" text-anchor="middle" font-size="22">MixMidas Booking Platform</text>
+
+  <!-- Customer stick figure -->
+  <g transform="translate(96 305)" class="actor">
+    <circle cx="0" cy="0" r="17"/>
+    <path d="M0 17v62M-33 40H33M0 79l-30 40M0 79l30 40"/>
+  </g>
+  <text x="96" y="460" class="actor-label">Customer</text>
+
+  <!-- Administrator stick figure -->
+  <g transform="translate(1105 347)" class="actor">
+    <circle cx="0" cy="0" r="17"/>
+    <path d="M0 17v62M-33 40H33M0 79l-30 40M0 79l30 40"/>
+  </g>
+  <text x="1105" y="502" class="actor-label">Administrator</text>
+
+  <!-- Customer use cases -->
+  <ellipse cx="430" cy="188" rx="145" ry="42" class="case"/>
+  <text x="430" y="188" class="label">Browse landing page</text>
+  <ellipse cx="430" cy="293" rx="145" ry="42" class="case"/>
+  <text x="430" y="293" class="label">View services</text>
+  <ellipse cx="430" cy="398" rx="145" ry="42" class="case"/>
+  <text x="430" y="398" class="label">Contact studio</text>
+  <ellipse cx="430" cy="535" rx="145" ry="48" class="case-accent"/>
+  <text x="430" y="529" class="label">Book a session</text>
+  <text x="430" y="551" class="note">service, date, time and duration</text>
+  <ellipse cx="430" cy="662" rx="145" ry="44" class="case"/>
+  <text x="430" y="657" class="label">Receive booking</text>
+  <text x="430" y="679" class="note">confirmation</text>
+
+  <!-- System booking functions -->
+  <ellipse cx="744" cy="467" rx="154" ry="42" class="case"/>
+  <text x="744" y="462" class="label">Calculate estimated cost</text>
+  <text x="744" y="484" class="note">₦10,000 × duration</text>
+  <ellipse cx="744" cy="573" rx="154" ry="50" class="case"/>
+  <text x="744" y="567" class="label">Validate booking rules</text>
+  <text x="744" y="589" class="note">hours, date and availability</text>
+
+  <!-- Admin use cases -->
+  <ellipse cx="802" cy="238" rx="126" ry="42" class="case"/>
+  <text x="802" y="238" class="label">Log in to admin</text>
+  <ellipse cx="802" cy="344" rx="146" ry="48" class="case-accent"/>
+  <text x="802" y="338" class="label">View and manage</text>
+  <text x="802" y="360" class="note">bookings</text>
+
+  <!-- Associations -->
+  <path d="M145 345L285 188M145 345L285 293M145 345L285 398M145 345L285 535M145 345L285 662" class="link"/>
+  <path d="M575 535L590 467M575 535L590 573M430 583L430 618" class="link"/>
+  <path d="M948 238L1068 370M948 344L1068 370" class="link"/>
+  <path d="M802 280L802 296" class="link"/>
+
+  <text x="600" y="792" class="note">Customer booking rules: sessions run from 10:00 AM to 6:00 PM, cannot be in the past, and cannot overlap.</text>
+</svg>

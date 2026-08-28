@@ -1,5 +1,5 @@
 {% extends "bookings/base.html" %}
-{% block content %}
+{% load static %}
 <section id="home" class="hero">
   <div class="container hero-grid">
     <div>
@@ -8,7 +8,10 @@
       <p class="hero-copy">Bring your sound into focus with experienced, artist-first engineering from your first vocal take to your final master.</p>
       <div class="hero-actions"><a class="button" href="{% url 'book_session' %}">Book a session <span>→</span></a><a class="text-link" href="#services">Explore services ↓</a></div>
     </div>
-    <div class="hero-mark" aria-hidden="true"><div class="mark-ring ring-one"></div><div class="mark-ring ring-two"></div><div class="mark-core">M</div><p>YOUR SOUND<br>IS WORTH IT</p></div>
+   <div class="hero-mark">
+  <img src="{% static 'images/studio.jpg' %}" alt="MixMidas recording studio" class="studio-image">
+  <p>YOUR SOUND<br>IS WORTH IT</p>
+</div>
   </div>
 </section>
 
